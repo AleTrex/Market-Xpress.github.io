@@ -1,0 +1,400 @@
+/* ===================================================
+   VARIABLES Y ESTILOS GLOBALES DE PRODUCTOS
+   =================================================== */
+:root {
+  --verde: #10b981;
+  --verde-hover: #059669;
+  --verde-clarito: #e6f4ea;
+  --verde-oscuro: #064e3b;
+  --fondo: #f8fafc;
+  --tarjeta-bg: #ffffff;
+  --texto: #1e293b;
+  --texto-suave: #64748b;
+  --sombra-suave: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  --sombra-hover: 0 20px 25px -5px rgba(16, 185, 129, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+}
+
+/* ===================================================
+   ENCABEZADO (HEADER) CON GLASSMORPHISM
+   =================================================== */
+.encabezado {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--verde-oscuro);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.logo span {
+  color: var(--verde);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--texto-suave);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transicion);
+}
+
+.menu a:hover, .menu a.activo {
+  color: var(--verde);
+}
+
+.link-carrito {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--verde-clarito);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  color: var(--verde-oscuro) !important;
+}
+
+#cuenta {
+  background: var(--verde);
+  color: white;
+  border-radius: 50%;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.btn-ingresar {
+  border: 1.5px solid var(--verde);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  color: var(--verde) !important;
+}
+
+.btn-ingresar:hover {
+  background: var(--verde);
+  color: white !important;
+}
+
+/* ===================================================
+   ESTRUCTURA PRINCIPAL Y HERO
+   =================================================== */
+.contenedor-principal {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.encabezado-seccion {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.encabezado-seccion h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  color: var(--texto);
+}
+
+.encabezado-seccion p {
+  color: var(--texto-suave);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* ===================================================
+   PANEL DE BUSCADOR Y FILTROS
+   =================================================== */
+.panel-controles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease-out 0.1s backwards;
+}
+
+.caja-busqueda {
+  position: relative;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.caja-busqueda input {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 50px;
+  outline: none;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: var(--transicion);
+  box-sizing: border-box;
+}
+
+.caja-busqueda input:focus {
+  border-color: var(--verde);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+}
+
+.icono-buscar {
+  position: absolute;
+  left: 1.1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+
+.filtros-categorias {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.btn-filtro {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 1.1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.btn-filtro:hover {
+  border-color: var(--verde);
+  color: var(--verde);
+  transform: translateY(-2px);
+}
+
+.btn-filtro.activo {
+  background: var(--verde);
+  color: white;
+  border-color: var(--verde);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* ===================================================
+   BLOQUES DE SECCIÓN Y GRID
+   =================================================== */
+.bloque-seccion {
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.titulo-categoria {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid #e2e8f0;
+  color: var(--texto);
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ===================================================
+   TARJETAS Y IMÁGENES (TAMAÑO UNIFORME)
+   =================================================== */
+.tarjeta {
+  position: relative;
+  background: var(--tarjeta-bg);
+  border-radius: 16px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  border: 1px solid #f1f5f9;
+  box-shadow: var(--sombra-suave);
+  transition: var(--transicion);
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 100%; /* Garantiza altura pareja entre tarjetas */
+}
+
+.tarjeta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--verde);
+  opacity: 0;
+  transition: var(--transicion);
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-hover);
+  border-color: transparent;
+}
+
+.tarjeta:hover::before {
+  opacity: 1;
+}
+
+/* Imagen con tamaño fixed estándar */
+.foto-img {
+  width: 100%;
+  height: 180px; /* Todas las imágenes medirán exactamente 180px de alto */
+  object-fit: cover; /* Mantiene la proporción sin estirar ni deformar la imagen */
+  border-radius: 12px;
+  margin: 0.2rem 0 0.6rem 0;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tarjeta:hover .foto-img {
+  transform: scale(1.04);
+}
+
+.badge-cat {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--verde-hover);
+  background: var(--verde-clarito);
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+}
+
+.tarjeta h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--texto);
+  line-height: 1.3;
+}
+
+.precio {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--verde-oscuro);
+}
+
+/* ===================================================
+   BOTONES INTERACTIVOS
+   =================================================== */
+.tarjeta .boton {
+  margin-top: auto;
+  width: 100%;
+  padding: 0.65rem;
+  background: var(--verde);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transicion);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+.tarjeta .boton:hover {
+  background: var(--verde-hover);
+  transform: scale(1.02);
+}
+
+.tarjeta .boton:active {
+  transform: scale(0.97);
+}
+
+.tarjeta .boton.agregado {
+  background: #0284c7;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2);
+}
+
+/* ===================================================
+   PIE DE PÁGINA (FOOTER)
+   =================================================== */
+.pie {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+/* ===================================================
+   ANIMACIONES KEYFRAMES
+   =================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .encabezado {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .encabezado-seccion h1 {
+    font-size: 2rem;
+  }
+  
+  .lista {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .foto-img {
+    height: 140px; /* Tamaño adaptado para móviles */
+  }
+}

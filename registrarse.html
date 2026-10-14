@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrarse | Market Xpress</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/registrarse.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <a class="logo" href="index.html">Market Xpress<span>.</span></a>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html" class="link-carrito">
+          🛒 Carrito
+          <span id="cuenta">0</span>
+        </a>
+        <a href="login.html" class="btn-ingresar">Ingresar</a>
+      </nav>
+    </header>
+
+    <main class="contenedor-registro">
+      <form class="formulario" id="registro">
+        <div class="encabezado-form">
+          <h1>Crear cuenta</h1>
+          <p>Únete y disfruta de la mejor experiencia de compra</p>
+        </div>
+
+        <div class="grupo-input">
+          <label for="nombre">Nombre completo</label>
+          <input id="nombre" type="text" placeholder="Ej. Carlos Mendoza" required />
+        </div>
+
+        <div class="grupo-input">
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" type="email" placeholder="tu@correo.com" required />
+        </div>
+
+        <div class="grupo-input">
+          <label for="clave">Contraseña (mínimo 6 caracteres)</label>
+          <input id="clave" type="password" placeholder="••••••••" required minlength="6" />
+        </div>
+
+        <div class="grupo-input">
+          <label for="clave2">Repite la contraseña</label>
+          <input id="clave2" type="password" placeholder="••••••••" required />
+        </div>
+
+        <!-- CHECKBOX DE TÉRMINOS Y CONDICIONES -->
+        <div class="campo-check">
+          <input type="checkbox" id="terminos" required />
+          <label for="terminos">
+            Acepto los <a href="#" id="abrir-modal">Términos y Condiciones</a>
+          </label>
+        </div>
+
+        <button class="boton" type="submit">Registrarme</button>
+
+        <p class="pie-form">
+          ¿Ya tienes cuenta?
+          <a href="login.html">Inicia sesión</a>
+        </p>
+      </form>
+    </main>
+
+    <!-- VENTANA EMERGENTE (MODAL) TÉRMINOS Y CONDICIONES -->
+    <div id="modal-terminos" class="overlay-modal">
+      <div class="tarjeta-modal">
+        <button class="cerrar-modal" id="cerrar-modal" aria-label="Cerrar">&times;</button>
+        <div class="icono-modal">📜</div>
+        <h2>Términos y Condiciones</h2>
+        <p class="subtitulo-modal">Por favor lee atentamente las políticas de Market Xpress antes de continuar:</p>
+        
+        <ul class="lista-terminos">
+          <li><strong>1. Datos Protegidos:</strong> Tu información personal está resguardada con cifrado y no se compartirá con terceros.</li>
+          <li><strong>2. Uso de la Cuenta:</strong> Eres responsable del uso seguro y confidencial de tus credenciales de acceso.</li>
+          <li><strong>3. Envíos y Entregas:</strong> Los tiempos de entrega de productos frescos están sujetos a disponibilidad de cobertura.</li>
+          <li><strong>4. Precios y Pagos:</strong> Todos los valores incluyen impuestos locales y se procesan de forma transparente.</li>
+          <li><strong>5. Devoluciones:</strong> Puedes solicitar reemplazos o reembolsos dentro de las primeras 24 horas tras recibir tu compra.</li>
+        </ul>
+
+        <button type="button" class="btn-modal-aceptar" id="btn-aceptar-terms">Entendido y Acepto</button>
+      </div>
+    </div>
+
+    <footer class="pie">
+      © 2026 Market Xpress. Todos los derechos reservados.
+    </footer>
+
+    <script>
+      const form = document.getElementById("registro");
+      const clave = document.getElementById("clave");
+      const clave2 = document.getElementById("clave2");
+      const checkTerminos = document.getElementById("terminos");
+      
+      const modal = document.getElementById("modal-terminos");
+      const abrirModal = document.getElementById("abrir-modal");
+      const cerrarModal = document.getElementById("cerrar-modal");
+      const btnAceptarTerms = document.getElementById("btn-aceptar-terms");
+
+      // Abrir Modal
+      abrirModal.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.classList.add("activo");
+      });
+
+      // Cerrar Modal
+      const cerrar = () => modal.classList.remove("activo");
+      cerrarModal.addEventListener("click", cerrar);
+      btnAceptarTerms.addEventListener("click", () => {
+        checkTerminos.checked = true;
+        cerrar();
+      });
+
+      // Cerrar al dar click fuera de la tarjeta
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) cerrar();
+      });
+
+      // Submit Validación
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (clave.value !== clave2.value) {
+          alert("Las contraseñas no coinciden. Verifícalas e intenta de nuevo.");
+          return;
+        }
+        alert("¡Cuenta creada con éxito! Redirigiendo a inicio de sesión...");
+        location.href = "login.html";
+      });
+    </script>
+  </body>
+</html>

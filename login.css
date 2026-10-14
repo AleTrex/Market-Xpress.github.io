@@ -1,0 +1,220 @@
+:root {
+  --primary-green: #00b96b;
+  --dark-green: #024d3c;
+  --dark-blue: #1e293b;
+  --text-grey: #64748b;
+  --soft-blue: #f0f4f8; /* Mismo tono exacto para fondo, inputs y carrito */
+  --white: #ffffff;
+  --border-color: #e2e8f0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--soft-blue);
+  color: var(--dark-blue);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ENCABEZADO */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 5%;
+  background-color: var(--white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  color: var(--dark-green);
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--text-grey);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--soft-blue);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  color: var(--text-grey) !important;
+  font-weight: 600 !important;
+}
+
+#cuenta {
+  background-color: var(--primary-green);
+  color: var(--white);
+  border-radius: 50%;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.btn-ingresar {
+  color: var(--primary-green) !important;
+  border: 1.5px solid var(--primary-green);
+  padding: 0.4rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600 !important;
+}
+
+/* CONTENEDOR Y TARJETA DEL FORMULARIO */
+.contenedor-principal {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+}
+
+.tarjeta-form {
+  background-color: var(--white);
+  width: 100%;
+  max-width: 440px;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-color);
+  box-sizing: border-box;
+}
+
+.tarjeta-form h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--dark-blue);
+  margin: 0 0 0.4rem 0;
+}
+
+.subtitulo {
+  text-align: center;
+  color: var(--text-grey);
+  font-size: 0.95rem;
+  margin: 0 0 2rem 0;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.campo label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark-blue);
+}
+
+.campo input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: var(--soft-blue);
+  border: 1px solid #dce4ec;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--dark-blue);
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.campo input:focus {
+  border-color: var(--primary-green);
+  background-color: var(--white);
+}
+
+.campo input::placeholder {
+  color: #94a3b8;
+}
+
+/* CHECKBOX DE TÉRMINOS */
+.campo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-grey);
+}
+
+.campo-checkbox input[type="checkbox"] {
+  accent-color: var(--primary-green);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.campo-checkbox a {
+  color: var(--primary-green);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* BOTÓN VERDE PRINCIPAL */
+.boton-principal {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: var(--primary-green);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.boton-principal:hover {
+  background-color: #00a05c;
+}
+
+.boton-principal:active {
+  transform: scale(0.99);
+}
+
+/* ENLACES INTERNOS DE NAVEGACIÓN */
+.enlace-cambio {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: var(--text-grey);
+}
+
+.enlace-cambio a {
+  color: var(--primary-green);
+  font-weight: 700;
+  text-decoration: underline;
+  margin-left: 0.25rem;
+}
+
+/* PIE DE PÁGINA */
+.pie {
+  text-align: center;
+  padding: 1.5rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  background-color: var(--white);
+  border-top: 1px solid var(--border-color);
+}

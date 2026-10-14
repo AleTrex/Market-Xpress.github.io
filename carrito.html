@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrito | Market Xpress</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/carrito.css" />
+  </head>
+  <body>
+    <!-- FONDO CREATIVO ANIMADO -->
+    <div class="fondo-creativo">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="malla-puntos"></div>
+    </div>
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+      <a class="logo" href="index.html">Market Xpress</a>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html" class="cart-link activo">
+          🛒 Carrito
+          <span id="cuenta">0</span>
+        </a>
+        <a href="login.html" class="btn-ingresar">Ingresar</a>
+      </nav>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="contenedor-principal">
+      <div class="tarjeta-carrito anim-entrada">
+        <div class="header-carrito">
+          <div>
+            <h1>Tu Carrito de Compras</h1>
+            <p class="subtitulo-carrito">Revisa los productos que has agregado a tu pedido</p>
+          </div>
+          <span class="badge-envio" id="badge-envio">🚚 Envío fijo: $2.00</span>
+        </div>
+
+        <!-- Mensaje cuando el carrito está VACÍO (Oculto por defecto) -->
+        <div id="vacio" class="estado-vacio" style="display: none;">
+          <div class="icono-vacio">🛍️</div>
+          <h2>Tu carrito está vacío</h2>
+          <p>Aún no has agregado ningún producto a tu lista de compras.</p>
+          <a class="boton-explorar" href="productos.html">Explorar Productos</a>
+        </div>
+
+        <!-- LISTA VISUAL DE PRODUCTOS -->
+        <div id="contenedor-productos" class="lista-productos">
+          <!-- Se genera dinámicamente con JS -->
+        </div>
+
+        <!-- RESUMEN DE PAGO (Oculto automáticamente cuando el carrito se vacía) -->
+        <div class="resumen-pago" id="resumen">
+          <div class="desglose-precios">
+            <div class="linea-desglose">
+              <span>Subtotal de productos:</span>
+              <span id="subtotal-txt" class="monto-dinamico">$0.00</span>
+            </div>
+            <div class="linea-desglose">
+              <span>Costo de envío:</span>
+              <span id="envio-txt" class="monto-dinamico">$2.00</span>
+            </div>
+            <div class="linea-desglose total-final">
+              <span>Total a pagar:</span>
+              <span id="total" class="monto-dinamico">$0.00</span>
+            </div>
+          </div>
+
+          <button class="boton-pagar-animado" id="pagar">
+            <span>Finalizar compra</span>
+            <svg class="icono-flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="pie">
+      © 2026 Market Xpress. Todos los derechos reservados.
+    </footer>
+
+    <script src="js/carrito.js"></script>
+    <script>
+      const COSTO_ENVIO_FIJO = 2.00;
+
+      // Imagen predeterminada según nombre
+      function obtenerImagenProducto(item) {
+        if (item.img) return item.img;
+        if (item.imagen) return item.imagen;
+
+        const n = (item.n || "").toLowerCase();
+        if (n.includes("manzana") || n.includes("fruta")) 
+          return "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=150&auto=format&fit=crop&q=80";
+        if (n.includes("verdura") || n.includes("tomate")) 
+          return "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=150&auto=format&fit=crop&q=80";
+        if (n.includes("carne") || n.includes("pollo") || n.includes("res")) 
+          return "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=150&auto=format&fit=crop&q=80";
+        if (n.includes("leche") || n.includes("queso") || n.includes("lácteo")) 
+          return "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=150&auto=format&fit=crop&q=80";
+        if (n.includes("pan")) 
+          return "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=150&auto=format&fit=crop&q=80";
+
+        return "https://images.unsplash.com/photo-1542838132-92c53300491e?w=150&auto=format&fit=crop&q=80";
+      }
+
+      function obtenerCarrito() {
+        if (typeof leer === "function") {
+          return leer() || [];
+        }
+        try {
+          return JSON.parse(localStorage.getItem("carrito")) || [];
+        } catch(e) {
+          return [];
+        }
+      }
+
+      function guardarCarrito(c) {
+        if (typeof guardar === "function") {
+          guardar(c);
+        } else {
+          localStorage.setItem("carrito", JSON.stringify(c));
+        }
+      }
+
+      function dibujar() {
+        const c = obtenerCarrito();
+        const cont = document.getElementById("contenedor-productos");
+        const cuentaEl = document.getElementById("cuenta");
+        const vacioEl = document.getElementById("vacio");
+        const resumenEl = document.getElementById("resumen");
+        const badgeEnvio = document.getElementById("badge-envio");
+
+        const totalUnidades = c.reduce((sum, item) => sum + item.q, 0);
+
+        if (cuentaEl) {
+          cuentaEl.textContent = totalUnidades;
+        }
+
+        // SI EL CARRITO ESTÁ VACÍO
+        if (!c || c.length === 0 || totalUnidades === 0) {
+          cont.innerHTML = "";
+          vacioEl.style.display = "block";
+          resumenEl.style.display = "none";
+          if (badgeEnvio) badgeEnvio.style.display = "none";
+          return;
+        }
+
+        // SI HAY PRODUCTOS EN EL CARRITO
+        vacioEl.style.display = "none";
+        resumenEl.style.display = "flex";
+        if (badgeEnvio) badgeEnvio.style.display = "inline-block";
+
+        // Renderizar items
+        cont.innerHTML = c
+          .map((item, index) => {
+            const urlImagen = obtenerImagenProducto(item);
+            const subtotalItem = (item.p * item.q).toFixed(2);
+            return `
+              <div class="tarjeta-producto-item" id="prod-${index}">
+                <div class="info-producto">
+                  <img src="${urlImagen}" alt="${item.n}" class="img-prod" />
+                  <div class="detalles-prod">
+                    <span class="nombre-prod">${item.n}</span>
+                    <span class="precio-unitario">$${parseFloat(item.p).toFixed(2)} c/u</span>
+                  </div>
+                </div>
+
+                <div class="controles-cantidad">
+                  <button class="btn-cant" onclick="cambiarCantidad(${index}, -1)">-</button>
+                  <span class="num-cant">${item.q}</span>
+                  <button class="btn-cant" onclick="cambiarCantidad(${index}, 1)">+</button>
+                </div>
+
+                <div class="subtotal-item">
+                  <span class="label-sub">Subtotal</span>
+                  <span class="monto-sub">$${subtotalItem}</span>
+                </div>
+
+                <button class="btn-eliminar" onclick="eliminarProducto(${index})" title="Quitar producto">
+                  🗑️
+                </button>
+              </div>
+            `;
+          })
+          .join("");
+
+        // CÁLCULO DE TOTALES
+        const subtotal = c.reduce((sum, item) => sum + (item.p * item.q), 0);
+        const costoEnvio = COSTO_ENVIO_FIJO;
+        const totalConEnvio = subtotal + costoEnvio;
+
+        document.getElementById("subtotal-txt").textContent = "$" + subtotal.toFixed(2);
+        document.getElementById("envio-txt").textContent = "$" + costoEnvio.toFixed(2);
+        document.getElementById("total").textContent = "$" + totalConEnvio.toFixed(2);
+      }
+
+      function cambiarCantidad(index, delta) {
+        let c = obtenerCarrito();
+        if (c[index]) {
+          c[index].q += delta;
+          if (c[index].q <= 0) {
+            c.splice(index, 1);
+          }
+          guardarCarrito(c);
+          dibujar();
+        }
+      }
+
+      function eliminarProducto(index) {
+        const el = document.getElementById(`prod-${index}`);
+        if (el) {
+          el.classList.add("salida-animada");
+          setTimeout(() => {
+            let c = obtenerCarrito();
+            c.splice(index, 1);
+            guardarCarrito(c);
+            dibujar();
+          }, 250);
+        }
+      }
+
+      document.getElementById("pagar").addEventListener("click", () => {
+        guardarCarrito([]);
+        dibujar();
+        alert("🎉 ¡Gracias por tu compra en Market Xpress! Tu pedido llegará pronto.");
+      });
+
+      dibujar();
+    </script>
+  </body>
+</html>

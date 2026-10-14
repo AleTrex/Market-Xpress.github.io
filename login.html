@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión | Market Xpress</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <a class="logo" href="index.html">Market Xpress</a>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html" class="cart-link">
+          🛒 Carrito
+          <span id="cuenta">0</span>
+        </a>
+        <a href="login.html" class="btn-ingresar">Ingresar</a>
+      </nav>
+    </header>
+
+    <main class="contenedor-principal">
+      <form
+        class="tarjeta-form"
+        onsubmit="
+          event.preventDefault();
+          alert('Sesión iniciada');
+          location.href = 'index.html';
+        "
+      >
+        <h1>Iniciar sesión</h1>
+        <p class="subtitulo">Ingresa tus datos para acceder a tu cuenta</p>
+
+        <div class="campo">
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" type="email" placeholder="tu@correo.com" required />
+        </div>
+
+        <div class="campo">
+          <label for="clave">Contraseña</label>
+          <input id="clave" type="password" placeholder="••••••••" required minlength="6" />
+        </div>
+
+        <button class="boton-principal" type="submit">Ingresar</button>
+
+        <p class="enlace-cambio">
+          ¿No tienes cuenta?
+          <a href="registrarse.html">Regístrate</a>
+        </p>
+      </form>
+    </main>
+
+    <footer class="pie">
+      © 2026 Market Xpress. Todos los derechos reservados.
+    </footer>
+  </body>
+</html>

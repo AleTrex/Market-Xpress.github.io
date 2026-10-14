@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos | Market Xpress</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/productos.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <a class="logo" href="index.html">Market Xpress<span>.</span></a>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html" class="activo">Productos</a>
+        <a href="carrito.html" class="link-carrito">
+          🛒 Carrito
+          <span id="cuenta">0</span>
+        </a>
+        <a href="login.html" class="btn-ingresar">Ingresar</a>
+      </nav>
+    </header>
+
+    <main class="contenedor-principal">
+      <section class="encabezado-seccion">
+        <h1>Nuestros Productos</h1>
+        <p>Encuentra todo lo que necesitas fresco y al mejor precio</p>
+      </section>
+
+      <!-- BUSCADOR Y FILTROS -->
+      <section class="panel-controles">
+        <div class="caja-busqueda">
+          <span class="icono-buscar">🔍</span>
+          <input type="text" id="buscador" placeholder="Buscar productos por nombre..." />
+        </div>
+
+        <div class="filtros-categorias">
+          <button class="btn-filtro activo" data-categoria="todas">Todas</button>
+          <button class="btn-filtro" data-categoria="frutas-verduras">🍎 Frutas y Verduras</button>
+          <button class="btn-filtro" data-categoria="lacteos-huevos">🥛 Lácteos y Huevos</button>
+          <button class="btn-filtro" data-categoria="carnes-aves">🍗 Carnes y Aves</button>
+          <button class="btn-filtro" data-categoria="panaderia">🍞 Panadería</button>
+          <button class="btn-filtro" data-categoria="bebidas">🧃 Bebidas</button>
+        </div>
+      </section>
+
+      <!-- CONTENEDOR DE PRODUCTOS -->
+      <div class="contenedor-secciones">
+        
+        <!-- SECCIÓN 1: FRUTAS Y VERDURAS -->
+        <section class="bloque-seccion" data-cat="frutas-verduras">
+          <h2 class="titulo-categoria">🍎 Frutas y Verduras</h2>
+          <div class="lista">
+            <article class="tarjeta" data-nombre="banano libra">
+              <span class="badge-cat">Fruta</span>
+              <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&q=80" alt="Banano" class="foto-img" />
+              <h2>Banano (libra)</h2>
+              <span class="precio">$0.45</span>
+              <button class="boton" data-n="Banano (libra)" data-p="0.45">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="tomate libra">
+              <span class="badge-cat">Verdura</span>
+              <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&q=80" alt="Tomate" class="foto-img" />
+              <h2>Tomate (libra)</h2>
+              <span class="precio">$0.60</span>
+              <button class="boton" data-n="Tomate (libra)" data-p="0.60">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="manzana roja unidad">
+              <span class="badge-cat">Fruta</span>
+              <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&q=80" alt="Manzana Roja" class="foto-img" />
+              <h2>Manzana Roja (ud)</h2>
+              <span class="precio">$0.50</span>
+              <button class="boton" data-n="Manzana Roja" data-p="0.50">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="aguacate hass unidad">
+              <span class="badge-cat">Fruta</span>
+              <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&q=80" alt="Aguacate Hass" class="foto-img" />
+              <h2>Aguacate Hass</h2>
+              <span class="precio">$1.25</span>
+              <button class="boton" data-n="Aguacate Hass" data-p="1.25">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="zanahoria libra">
+              <span class="badge-cat">Verdura</span>
+              <img src="https://images.unsplash.com/photo-1598170845058-12ef4a457939?w=400&q=80" alt="Zanahoria" class="foto-img" />
+              <h2>Zanahoria (libra)</h2>
+              <span class="precio">$0.40</span>
+              <button class="boton" data-n="Zanahoria (libra)" data-p="0.40">Agregar</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 2: LÁCTEOS Y HUEVOS -->
+        <section class="bloque-seccion" data-cat="lacteos-huevos">
+          <h2 class="titulo-categoria">🥛 Lácteos y Huevos</h2>
+          <div class="lista">
+            <article class="tarjeta" data-nombre="leche 1 litro entero">
+              <span class="badge-cat">Lácteos</span>
+              <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&q=80" alt="Leche" class="foto-img" />
+              <h2>Leche 1 litro</h2>
+              <span class="precio">$1.10</span>
+              <button class="boton" data-n="Leche 1 litro" data-p="1.10">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="huevos docena fresco">
+              <span class="badge-cat">Huevos</span>
+              <img src="https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?w=400&q=80" alt="Huevos" class="foto-img" />
+              <h2>Huevos (docena)</h2>
+              <span class="precio">$2.40</span>
+              <button class="boton" data-n="Huevos (docena)" data-p="2.40">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="queso fresco libra">
+              <span class="badge-cat">Lácteos</span>
+              <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&q=80" alt="Queso Fresco" class="foto-img" />
+              <h2>Queso Fresco (libra)</h2>
+              <span class="precio">$3.20</span>
+              <button class="boton" data-n="Queso Fresco" data-p="3.20">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="yogur natural vaso">
+              <span class="badge-cat">Lácteos</span>
+              <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80" alt="Yogur Natural" class="foto-img" />
+              <h2>Yogur Natural</h2>
+              <span class="precio">$0.85</span>
+              <button class="boton" data-n="Yogur Natural" data-p="0.85">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="mantequilla barra">
+              <span class="badge-cat">Lácteos</span>
+              <img src="https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?w=400&q=80" alt="Mantequilla" class="foto-img" />
+              <h2>Mantequilla 200g</h2>
+              <span class="precio">$1.50</span>
+              <button class="boton" data-n="Mantequilla 200g" data-p="1.50">Agregar</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 3: CARNES Y AVES -->
+        <section class="bloque-seccion" data-cat="carnes-aves">
+          <h2 class="titulo-categoria">🍗 Carnes y Aves</h2>
+          <div class="lista">
+            <article class="tarjeta" data-nombre="pollo libra pechuga">
+              <span class="badge-cat">Aves</span>
+              <img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&q=80" alt="Pollo" class="foto-img" />
+              <h2>Pollo (libra)</h2>
+              <span class="precio">$1.95</span>
+              <button class="boton" data-n="Pollo (libra)" data-p="1.95">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="carne de res para azar libra">
+              <span class="badge-cat">Carnes</span>
+              <img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=400&q=80" alt="Carne de Res" class="foto-img" />
+              <h2>Carne de Res (libra)</h2>
+              <span class="precio">$4.50</span>
+              <button class="boton" data-n="Carne de Res" data-p="4.50">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="chuleta de cerdo libra">
+              <span class="badge-cat">Carnes</span>
+              <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&q=80" alt="Chuleta Cerdo" class="foto-img" />
+              <h2>Chuleta Cerdo (libra)</h2>
+              <span class="precio">$3.10</span>
+              <button class="boton" data-n="Chuleta Cerdo" data-p="3.10">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="filete de salmon entero fresco">
+              <span class="badge-cat">Pescado</span>
+              <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&q=80" alt="Filete Salmón" class="foto-img" />
+              <h2>Filete Salmón</h2>
+              <span class="precio">$6.80</span>
+              <button class="boton" data-n="Filete Salmón" data-p="6.80">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="jamon embutido paquete">
+              <span class="badge-cat">Embutidos</span>
+              <img src="https://images.unsplash.com/photo-1524182576066-1d963e940027?w=400&q=80" alt="Jamón de Pavo" class="foto-img" />
+              <h2>Jamón de Pavo (250g)</h2>
+              <span class="precio">$2.60</span>
+              <button class="boton" data-n="Jamón de Pavo" data-p="2.60">Agregar</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 4: PANADERÍA Y SNACKS -->
+        <section class="bloque-seccion" data-cat="panaderia">
+          <h2 class="titulo-categoria">🍞 Panadería y Snacks</h2>
+          <div class="lista">
+            <article class="tarjeta" data-nombre="pan molde integral">
+              <span class="badge-cat">Panadería</span>
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&q=80" alt="Pan molde" class="foto-img" />
+              <h2>Pan molde</h2>
+              <span class="precio">$1.85</span>
+              <button class="boton" data-n="Pan molde" data-p="1.85">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="croissant pan dulce">
+              <span class="badge-cat">Panadería</span>
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80" alt="Croissant" class="foto-img" />
+              <h2>Croissant Mantequilla</h2>
+              <span class="precio">$0.90</span>
+              <button class="boton" data-n="Croissant" data-p="0.90">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="galletas avena chocolate">
+              <span class="badge-cat">Snacks</span>
+              <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&q=80" alt="Galletas Avena" class="foto-img" />
+              <h2>Galletas de Avena</h2>
+              <span class="precio">$1.20</span>
+              <button class="boton" data-n="Galletas Avena" data-p="1.20">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="donas glaseadas dulce">
+              <span class="badge-cat">Panadería</span>
+              <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=400&q=80" alt="Dona Glaseada" class="foto-img" />
+              <h2>Dona Glaseada</h2>
+              <span class="precio">$0.75</span>
+              <button class="boton" data-n="Dona Glaseada" data-p="0.75">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="papas fritas snack">
+              <span class="badge-cat">Snacks</span>
+              <img src="https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&q=80" alt="Papas Fritas" class="foto-img" />
+              <h2>Papas Fritas 150g</h2>
+              <span class="precio">$1.40</span>
+              <button class="boton" data-n="Papas Fritas" data-p="1.40">Agregar</button>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 5: BEBIDAS -->
+        <section class="bloque-seccion" data-cat="bebidas">
+          <h2 class="titulo-categoria">🧃 Bebidas</h2>
+          <div class="lista">
+            <article class="tarjeta" data-nombre="jugo de naranja natural 1l">
+              <span class="badge-cat">Bebidas</span>
+              <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=400&q=80" alt="Jugo Naranja" class="foto-img" />
+              <h2>Jugo Naranja 1L</h2>
+              <span class="precio">$2.10</span>
+              <button class="boton" data-n="Jugo Naranja 1L" data-p="2.10">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="agua mineral embotellada">
+              <span class="badge-cat">Bebidas</span>
+              <img src="https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=400&q=80" alt="Agua Mineral" class="foto-img" />
+              <h2>Agua Mineral 1.5L</h2>
+              <span class="precio">$0.80</span>
+              <button class="boton" data-n="Agua Mineral" data-p="0.80">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="cafe molido tostado 250g">
+              <span class="badge-cat">Café</span>
+              <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&q=80" alt="Café Molido" class="foto-img" />
+              <h2>Café Molido 250g</h2>
+              <span class="precio">$3.90</span>
+              <button class="boton" data-n="Café Molido" data-p="3.90">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="refresco lata gaseosa 355ml">
+              <span class="badge-cat">Bebidas</span>
+              <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&q=80" alt="Refresco Cola" class="foto-img" />
+              <h2>Refresco Cola 355ml</h2>
+              <span class="precio">$0.70</span>
+              <button class="boton" data-n="Refresco Cola" data-p="0.70">Agregar</button>
+            </article>
+
+            <article class="tarjeta" data-nombre="te helado limon 1l">
+              <span class="badge-cat">Bebidas</span>
+              <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80" alt="Té Helado" class="foto-img" />
+              <h2>Té Helado Limón 1L</h2>
+              <span class="precio">$1.30</span>
+              <button class="boton" data-n="Té Helado" data-p="1.30">Agregar</button>
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer class="pie">
+      <div class="contenido-pie">
+        <p>© 2026 Market Xpress
+          
+          . Calidad y frescura garantizada.</p>
+      </div>
+    </footer>
+
+    <script src="js/carrito.js"></script>
+    <script>
+      // Lógica de interacción de botones "Agregar"
+      document.querySelectorAll("[data-n]").forEach((b) =>
+        b.addEventListener("click", () => {
+          if (typeof agregar === 'function') {
+            agregar(b.dataset.n, +b.dataset.p);
+          }
+          b.textContent = "✓ Agregado";
+          b.classList.add("agregado");
+          setTimeout(() => {
+            b.textContent = "Agregar";
+            b.classList.remove("agregado");
+          }, 900);
+        })
+      );
+
+      // Lógica del Buscador y Filtros de Categorías
+      const buscador = document.getElementById("buscador");
+      const botonesFiltro = document.querySelectorAll(".btn-filtro");
+      const secciones = document.querySelectorAll(".bloque-seccion");
+
+      function filtrar() {
+        const texto = buscador.value.toLowerCase().trim();
+        const catActiva = document.querySelector(".btn-filtro.activo").dataset.categoria;
+
+        secciones.forEach((seccion) => {
+          const catSeccion = seccion.dataset.cat;
+          const coincideCategoria = catActiva === "todas" || catActiva === catSeccion;
+          let tarjetasVisibles = 0;
+
+          const tarjetasEnSeccion = seccion.querySelectorAll(".tarjeta");
+          tarjetasEnSeccion.forEach((tarjeta) => {
+            const nombre = tarjeta.dataset.nombre;
+            const coincideTexto = nombre.includes(texto);
+
+            if (coincideCategoria && coincideTexto) {
+              tarjeta.style.display = "flex";
+              tarjetasVisibles++;
+            } else {
+              tarjeta.style.display = "none";
+            }
+          });
+
+          if (tarjetasVisibles > 0) {
+            seccion.style.display = "block";
+          } else {
+            seccion.style.display = "none";
+          }
+        });
+      }
+
+      buscador.addEventListener("input", filtrar);
+
+      botonesFiltro.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          botonesFiltro.forEach((b) => b.classList.remove("activo"));
+          btn.classList.add("activo");
+          filtrar();
+        });
+      });
+    </script>
+  </body>
+</html>
